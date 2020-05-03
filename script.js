@@ -182,7 +182,7 @@ var quiz = {
       setTimeout(quiz.nextQuestion, 2 * 1000);
     }
   },
-  total: quiz.correct.value - quiz.incorrect.value - quiz.unanswered.value,
+  
   
   reset: function () {
     quiz.currentQuestion = 0;
