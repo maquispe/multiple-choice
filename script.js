@@ -122,25 +122,25 @@ var quiz = {
     $("#subwrapper").append(" Correct: " + quiz.correct + "<br/>");
     $("#subwrapper").append(" Incorrect: " + quiz.incorrect + "<br/>");
     $("#subwrapper").append(" Unanswered: " + quiz.unanswered + "<br/>");
-    $("#subwrapper").append(" Total: " +  + "<br/>");
     $("#subwrapper").append("<button id= reset>Try again?</button>");
   },
   
   addInitials: function(){
-    var initials = $("#initials").val();
-    var existingInitials = JSON.parse(localStorage.getItem('initials')) || [];
-    existingInitials.push(initials);
-    localStorage.setItem('initials', JSON.stringify(existingInitials));
-    for(var i = 0; i < existingInitials.length; i++){
-      $("#d-initials").append("<div>"+existingInitials[i]+"</div>");
+    var scoreObj = {
+      initials: $("#initials").val(),
+      score: quiz.counter,
+    };
+    
+    var highScores = JSON.parse(localStorage.getItem('initials')) || [];
+    highScores.push(scoreObj);
+    localStorage.setItem('initials', JSON.stringify(highScores));
+    for(var i = 0; i < highScores.length; i++){
+      $("#d-initials").append("<div>"+highScores[i].initials+" Score: " +highScores[i].score+ "</div>");
     }
-    console.log(existingInitials);
+    console.log(highScores.score);
     
   },
-  // renderScores: function(){
-  //   //var scoreTotal = parseInt(quiz.correct) - parseInt(quiz.incorrect) - parseInt(quiz.unanswered);
-  //   var score = JSON.parse(localStorage.getItem(''))
-  // },
+  
   
 
   clicked: function (e) {
