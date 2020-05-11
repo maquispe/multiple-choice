@@ -126,6 +126,7 @@ var quiz = {
   },
   
   addInitials: function(){
+    $("#d-initials").empty();
     var scoreObj = {
       initials: $("#initials").val(),
       score: quiz.counter,
